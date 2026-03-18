@@ -14,7 +14,7 @@ struct rayxr_context {
 
         GLuint fbos[2];
         GLuint depth[2];
-        Gluint eye_imgs[2][4];
+        GLuint eye_imgs[2][4];
         uint32_t eye_img_count[2];
 
         int current_eye;

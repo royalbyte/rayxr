@@ -96,5 +96,4 @@ XrSession rxr_session(void);
  * Allows advanced users to access OpenXR functionality not wrapped by rayxr.
  */
 XrInstance rxr_instance(void);
-
 #endif /* RAYXR_H */

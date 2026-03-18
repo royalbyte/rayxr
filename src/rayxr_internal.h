@@ -1,13 +1,14 @@
 #ifndef RAYXR_INTERNAL_H
 #define RAYXR_INTERNAL_H
 
-typedef struct {
-    XrInstance instance;
-    XrSession session;
-    XrSpace space;
+struct rayxr_context {
+        XrInstance instance;
+        XrSystemId device;
+        XrSession session;
+        XrSpace space;
 
-    XrSwapchain swapchains[2];
-
-} RayXRContext;
+        XrViewConfigurationView view_config[2];
+        XrSwapchain swapchains[2];
+};
 
 #endif /* RAYXR_INTERNAL_H */

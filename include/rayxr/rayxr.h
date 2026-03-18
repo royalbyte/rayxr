@@ -9,9 +9,9 @@
  *
  * Must be called after the graphics context is created (e.g. after InitWindow()).
  *
- * Returns true on success, false if initialization failed.
+ * Returns 0 on success, 1 if initialization failed.
  */
-bool rxr_init(void);
+int rxr_init(void);
 
 /*
  * Shutdown the rayxr runtime.
@@ -27,9 +27,9 @@ void rxr_shutdown(void);
  * Internally calls xrWaitFrame() and xrBeginFrame().
  * Must be called once per frame before rendering any eye.
  *
- * Returns false if the XR runtime is not ready to render.
+ * Returns 1 if the XR runtime is not ready to render.
  */
-bool rxr_begin_frame(void);
+int rxr_begin_frame(void);
 
 /*
  * End the current XR frame.
@@ -37,7 +37,7 @@ bool rxr_begin_frame(void);
  * Submits all rendered eye images to the OpenXR runtime using xrEndFrame().
  * Must be called after both eyes have been rendered.
  */
-bool rxr_end_frame(void);
+int rxr_end_frame(void);
 
 /*
  * Begin rendering for a specific eye.
@@ -49,9 +49,9 @@ bool rxr_end_frame(void);
  *   0 -> left eye
  *   1 -> right eye
  *
- * Returns false if rendering cannot start for this eye.
+ * Returns 1 if rendering cannot start for this eye.
  */
-bool rxr_begin_eye(int eye);
+int rxr_begin_eye(int eye);
 
 /*
  * Finish rendering the current eye.
@@ -79,9 +79,9 @@ XrPosef rxr_get_head_pose(void);
 /*
  * Check if the XR runtime is currently running.
  *
- * Returns true while the OpenXR session is active and frames should be rendered.
+ * Returns 0 while the OpenXR session is active and frames should be rendered.
  */
-bool rxr_is_running(void);
+int rxr_is_running(void);
 
 /*
  * Get the underlying OpenXR session handle.

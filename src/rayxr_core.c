@@ -9,7 +9,7 @@
 #define RXR_CHECK(x) if ((x) != XR_SUCCESS) return false
 #define OUTPUT_CAPACITY 16
 
-static struct rayxr_context ctx = {0};
+struct rayxr_context ctx = {0};
 static const char* extensions[] = {
         XR_KHR_OPENGL_ENABLE_EXTENSION_NAME
 };

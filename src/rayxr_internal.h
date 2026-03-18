@@ -6,9 +6,20 @@ struct rayxr_context {
         XrSystemId device;
         XrSession session;
         XrSpace space;
-
-        XrViewConfigurationView view_config[2];
         XrSwapchain swapchains[2];
+        XrFrameState frame_state;
+        XrView views[2];
+        uint32_t eye_width[2];
+        uint32_t eye_height[2];
+
+        GLuint fbos[2];
+        GLuint depth[2];
+        Gluint eye_imgs[2][4];
+        uint32_t eye_img_count[2];
+
+        int current_eye;
 };
+
+void session_poll(void);
 
 #endif /* RAYXR_INTERNAL_H */
